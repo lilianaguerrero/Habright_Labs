@@ -20,6 +20,7 @@ def multiply(num1, num2):
 
 def divide(num1, num2):
     """Divide the first input by the second and return the result."""
+    return round((num1 / num2), 4)
 
 
 def square(num1):
