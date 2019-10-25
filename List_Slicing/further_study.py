@@ -30,9 +30,10 @@ def custom_len(input_list):
         8
 
     """
-
-    return 0
-
+    running_sum = 0
+    for item in input_list:
+        running_sum = running_sum + 1
+    return running_sum
 
 # For the next four exercises, you'll need to be clever and think about ways
 # to use list slice assignment.
@@ -58,7 +59,7 @@ def custom_append(input_list, value):
         True
 
     """
-
+    input_list[custom_len(input_list):custom_len(input_list)] = [value] 
     pass
 
 
@@ -77,7 +78,8 @@ def custom_extend(input_list, second_list):
         True
 
     """
-
+    for item in second_list:
+        custom_append(input_list, item)
     pass
 
 
@@ -95,6 +97,8 @@ def custom_insert(input_list, index, value):
         True
 
     """
+    input_list[index:index] = [value] 
+
 
     pass
 
@@ -114,6 +118,14 @@ def custom_remove(input_list, value):
         True
 
     """
+    i = 0
+    for item in input_list:
+        if item == value:
+            input_list[i:] = input_list[i+1:] 
+        else:
+            break
+        i += 1
+
 
     pass
 
@@ -133,8 +145,9 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
-
-    return None
+    removed_month = input_list[custom_len(input_list)-1]
+    input_list[:custom_len(input_list)] = input_list[:custom_len(input_list)-1]
+    return removed_month
 
 
 def custom_index(input_list, value):
