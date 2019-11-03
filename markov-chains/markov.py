@@ -1,6 +1,6 @@
 """Generate Markov text from text files."""
 
-from random import choice
+import random
 
 
 def open_and_read_file(file_path):
@@ -9,32 +9,13 @@ def open_and_read_file(file_path):
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
-    dict_keys= {}
-    
-
-    contents = open(file_path).read()  # takes the entire txt file as a string
-    words = contents.split()  # split string by any kinds of whitespace
-    
-    for idx in range(len(words)-2):
-        key = words[idx], words[idx+1]  # creates a tuple of keys
-        if dict_keys.get(key) is None: #if the key (tuple) is not in the dict.
-            dict_keys[key] = [words[idx+2]]  # adds the tuple keys and values to the dictionary
-        else:
-            dict_keys[key].append(words[idx+2])  # if the key is already in the dictionary, the     append the value to the matching key in the dictionary
-            print(dict_keys)
-    #for idx, item in enumerate(lst):  # looping through lst and capturing the index
-        #print(item[])
-
-        #if item[0] in dict_keys:  # if the i at index 0(the key) is found in dict_keys
-            #dict_keys[item[0]]  # 
-
-    
    
+    contents = open(file_path).read()  # takes the entire txt file as a string
+    global words
+    words = contents.split()  # split string by any kinds of whitespace
 
-
-
-    return dict_keys #returns list
-#print(open_and_read_file('green-eggs.txt')) #prints and calls function with green eggs file as arg
+    return words
+open_and_read_file('green-eggs.txt') #calls function with green eggs file as arg
 
 
 def make_chains(text_string):
@@ -61,12 +42,47 @@ def make_chains(text_string):
         >>> chains[('there','juanita')]
         [None]
     """
+    dict_keys = {}
+    lst = []
 
-    chains = {}
+    for idx in range(len(words) - 2):
+        key = (words[idx], words[idx + 1])  # creates a tuple of keys
+        if dict_keys.get(key) is None: #if the key (tuple) is not in the dict.
+            dict_keys[key] = [words[idx + 2]]  # adds the tuple keys and values to the dictionary
+        else:
+            dict_keys[key].append(words[idx + 2])  # if the key is already in the dictionary, then append the value to the matching key in the dictionary
+           
+    
+    
+    keys = dict_keys.keys() # grabs all the keys in the dictionary
+    # for key in keys: 
+        word2 = key[1] # grabs second string in key (tuple)
+        rand_value = random.choice(dict_keys[key])  # grabs random value from key value list
+        new_key = word2, rand_value # creates new key (tuple) from the second word (first key( tuple)) and the random value from the list
+
+        if new_key in dict_keys: # checks if the newly generated key (tuple) is in the dictionary
+            rand_val = random.choice(dict_keys[new_key]) # if it is in the dictionary then grab a random value from the list associate to the new_key
+
+
+            lst.append(key[0])
+            lst.append(key[1])
+            lst.append(new_key[1])
+            lst.append(rand_val)
+
+
+            print(lst)
+
+            
+        else:
+            return None
+
+    
 
     # your code goes here
 
-    return chains
+    return dict_keys
+
+print(make_chains("green-eggs.txt"))
 
 
 def make_text(chains):
