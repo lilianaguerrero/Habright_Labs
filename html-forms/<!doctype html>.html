@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+    <head> 
+        <title> Ubermelon Order Form </title> 
+    </head>
+    <body>
+        <h1>Order!</h1>
+        <h3>Prices</h3>
+        <table>
+            <tbody>
+                <tr>
+                    <td> Melon Name </td>
+                    <td> Price per lb </td>
+                </tr>
+                <tr>
+                    <td> Watermelon </td>
+                    <td> $1.59 </td>
+                </tr>
+                <tr>
+                    <td> Honeydew </td>
+                    <td> $0.99 </td>
+                </tr>
+                <tr>
+                    <td> Canteloupe </td>
+                    <td> $1.29 </td>
+                </tr>
+                <tr>
+                    <td> Crenshaw </td>
+                    <td> $2.19 </td>
+                </tr>
+                <tr>
+                    <td> Canary </td>
+                    <td> $11.99 </td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Place our orders here! You know you want to.</p>
+        
+        </form>
+        <form>
+            First Name: input type="text" name="firstname">
+        </form>
+            <br>
+        <form>
+            Last Name: input type="text" name="lastname">
+        </form>
+            <br>
+        <form>
+            Melontype:
+                <select name="melontype">
+                    <option value="watermelon">Watermelon</option>
+                    <option value="honeydew">Honeydew</option>
+                    <option value="canteloupe">Canteloupe</option>
+                    <option value="crenshaw">Crenshaw</option>
+                    <option value="canary">Canary</option>
+                </select>
+        </form>
+        <form>
+            <br>
+            Quantity: input type="text" name="quantity"
+        </form>
+        <form>
+            <input type="radio" name="time" value="am">AM
+            <input type="radio" name="time" value="pm">PM
+            <input type="radio" name="time" value="wat">WAT
+            <br>
+        </form>
+        <form action= "https://ubermelon-order-form.herokuapp.com/process" method = "GET">
+            <input type= "submit">
+        </form>
+
+
+
