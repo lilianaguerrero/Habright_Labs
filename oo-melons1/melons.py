@@ -23,6 +23,7 @@ class AbstractMelonOrder():
         """Return the country code."""
         return self.country_code
 
+    print(dir())
 
 class DomesticMelonOrder(AbstractMelonOrder):
     """A melon order within the USA."""

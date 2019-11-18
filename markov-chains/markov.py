@@ -43,6 +43,7 @@ def make_chains(text_string):
         [None]
     """
     dict_keys = {}
+    global lst
     lst = []
 
     for idx in range(len(words) - 2):
@@ -56,43 +57,36 @@ def make_chains(text_string):
     
     keys = dict_keys.keys() # grabs all the keys in the dictionary
     # for key in keys: 
-        word2 = key[1] # grabs second string in key (tuple)
-        rand_value = random.choice(dict_keys[key])  # grabs random value from key value list
-        new_key = word2, rand_value # creates new key (tuple) from the second word (first key( tuple)) and the random value from the list
+    
+    new_key = (random.sample(keys, k=2))
 
-        if new_key in dict_keys: # checks if the newly generated key (tuple) is in the dictionary
-            rand_val = random.choice(dict_keys[new_key]) # if it is in the dictionary then grab a random value from the list associate to the new_key
+    for new_key in dict_keys:
+        rand_value2 = random.choice(dict_keys[new_key])
+        lst.append(new_key[0])
+        lst.append(new_key[1]) #add the new key to the list
+        lst.append(rand_value2)
 
+    else:
+        None
 
-            lst.append(key[0])
-            lst.append(key[1])
-            lst.append(new_key[1])
-            lst.append(rand_val)
-
-
-            print(lst)
-
-            
-        else:
-            return None
+    return lst 
 
     
+    
 
-    # your code goes here
-
-    return dict_keys
-
-print(make_chains("green-eggs.txt"))
+    # return dict_keys
+make_chains("green-eggs.txt")
 
 
 def make_text(chains):
     """Return text from chains."""
 
-    words = []
+    rand_words= " "
 
-    # your code goes here
+    return (rand_words.join(lst))
+    return rand_words
 
-    return " ".join(words)
+print(make_text(lst))
 
 
 input_path = "green-eggs.txt"
@@ -104,6 +98,6 @@ input_text = open_and_read_file(input_path)
 chains = make_chains(input_text)
 
 # Produce random text
-random_text = make_text(chains)
+# random_text = make_text(chains)
 
 #print(random_text)
