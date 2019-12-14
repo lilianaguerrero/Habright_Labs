@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///home/engineer/src/js-coffee-shop/coffee.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Hackbright Coffee Shop</title>
+
+  <!-- Bootstrap links -->
+  <link rel="stylesheet" href="./coffee2_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./coffee2_files/bootstrap-theme.min.css">
+  <!-- Google fonts link -->
+  <link rel="stylesheet" href="./coffee2_files/css">
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="./coffee2_files/coffee.css">
+</head>
+<body>
+  <div class="container">
+    <div class="starter-template">
+      <h1>Coffee Shop</h1>
+
+      <img id="coffee-image" alt="make this image work with js" height="300" width="200" src="./coffee2_files/coffee_beans.jpg">
+
+      <h3 id="message">Click The Image To Order Coffee</h3>
+
+      <table class="table">
+        <tbody><tr>
+          <td class="col-md-2">
+            <button class="btn btn-default" id="espresso">Espresso</button>
+          </td>
+          <td class="col-md-2">
+            <button class="btn btn-default" id="latte">Latte</button>
+          </td>
+          <td class="col-md-2">
+            <button class="btn btn-default" id="hot-chocolate">
+              Hot Chocolate
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td>$3.25</td>
+          <td>$4.15</td>
+          <td>$2.50</td>
+        </tr>
+      </tbody></table>
+
+      <h4>
+        Total: <span id="revenue"><!-- Revenue Message will show up here --></span>
+      </h4>
+    </div>
+  </div>
+
+  <script>
+
+    // Set these variables to their DOM elements
+
+    const coffeeImage = document.querySelector('img');
+    // const revenueMessage =  ;
+
+    // use this JavaScript object in further study step
+
+    const prices = {
+      'brew': 2.05,
+      'espresso': 3.25,
+      'latte': 4.15,
+      'hot chocolate': 2.50
+    };
+
+    function makeCoffee(){
+        coffeeImage.setAttribute('src', 'static/coffee_mug.jpg')
+    }
+
+  </script>
+
+
+
+</body></html>
